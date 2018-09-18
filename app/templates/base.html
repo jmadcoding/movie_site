@@ -12,7 +12,17 @@
             <a href="movie-list">Movie List</a>
             <a href="new-movie">New Movies</a>
         </div>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
         <hr>
-        {% block content %}{% endblock %}
+        {% block content %}
+        {% endblock %}
     </body>
 </html>
