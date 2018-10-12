@@ -6,9 +6,9 @@
     <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
         <p>
-            {{ form.moviename.label }}<br>
-            {{ form.moviename(size=32) }}<br>
-            {% for error in form.moviename.errors %}
+            {{ form.title.label }}<br>
+            {{ form.title(size=32) }}<br>
+            {% for error in form.title.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
@@ -19,6 +19,14 @@
         <p>
             {{ form.director.label }}<br>
             {{ form.director(size=32) }}
+        </p>
+        <p>
+            {{ form.genre.label }}<br>
+            {{ form.genre(size=32) }}
+        </p>
+        <p>
+            {{ form.stars.label }}<br>
+            {{ form.stars(size=32) }}
         </p>
         <p>
             {{ form.gross.label }}<br>

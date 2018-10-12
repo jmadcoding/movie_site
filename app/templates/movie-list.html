@@ -2,7 +2,7 @@
 
 {% block content %}
     <h1>Here are a bunch of movies I like!</h1>
-    {% for movies in movies %}
-<div><p><a href="movie">{{ movies.author.movie }}</a> : {{ movies.body }}</p></div>
+    {% for x in movies %}
+<div><p><a href="{{ url_for('movie', title=x.title)}}">{{ x.title }}</a> : {{ x.synopsis }}</p></div>
     {% endfor %}
 {% endblock %}

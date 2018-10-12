@@ -1,14 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>This is a movie template page</h1>
+<h1><b>Movie: </b>{{ movie.title }}</h1>
+<p><b>Release Date:</b> {{ movie.date}}</p>
+<p><b>Genre:</b> {{ movie.genre }}</p>
+<p><b>Synopsis:</b> {{ movie.synopsis }}</p>
 
-<p><b>Movie:</b>{{ info.Movie }}</p>
-<br>
-<p><b>Release Date:</b> {{ info.ReleaseDate}}</p>
-<p><b>Director:</b> {{ info.Director}}</p>
-<p><b>Gross:</b> {{ info.Gross }}</p>
-<p><b>Synopsis:</b> {{ info.Synopsis }}</p>
-
+<p><b>Starring:</b>
+<ul>
+    {% for star in stars %}
+    <li><b>{{ star.name }}</b> in <b>{{ movie.title }}</b></li>
+    {% endfor %}
+</ul>
+</p>
 
 {% endblock %}
