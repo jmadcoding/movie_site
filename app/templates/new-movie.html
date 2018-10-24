@@ -14,19 +14,19 @@
         </p>
         <p>
             {{ form.releasedate.label }}<br>
-            {{ form.releasedate(size=32) }}
+            {{ form.releasedate(class='datepicker') }}
         </p>
         <p>
             {{ form.director.label }}<br>
-            {{ form.director(size=32) }}
+            {{ form.director() }}
+        </p>
+        <p>
+            {{ form.stars.label }}<br>
+            {{ form.stars() }}
         </p>
         <p>
             {{ form.genre.label }}<br>
             {{ form.genre(size=32) }}
-        </p>
-        <p>
-            {{ form.stars.label }}<br>
-            {{ form.stars(size=32) }}
         </p>
         <p>
             {{ form.gross.label }}<br>

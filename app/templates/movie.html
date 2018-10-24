@@ -3,15 +3,15 @@
 {% block content %}
 <h1><b>Movie: </b>{{ movie.title }}</h1>
 <p><b>Release Date:</b> {{ movie.date}}</p>
-<p><b>Genre:</b> {{ movie.genre }}</p>
-<p><b>Synopsis:</b> {{ movie.synopsis }}</p>
-
-<p><b>Starring:</b>
+<p><b>Director:</b> {{ director }}</p>
+<p><b>Starring:</b></p>
 <ul>
     {% for star in stars %}
-    <li><b>{{ star.name }}</b> in <b>{{ movie.title }}</b></li>
+    <li><b>{{ star }}</b> in <b>{{ movie.title }}</b></li>
     {% endfor %}
 </ul>
-</p>
+<p><b>Genre:</b> {{ movie.genre }}</p>
+<p><b>Synopsis:</b> {{ movie.synopsis }}</p>
+<p><b>Gross:</b> {{ movie.gross }}</p>
 
 {% endblock %}
