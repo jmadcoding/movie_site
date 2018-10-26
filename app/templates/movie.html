@@ -1,6 +1,10 @@
 {% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
 
 {% block content %}
+
+<div class="row">
+        <div class="col-md-4">
 <h1><b>Movie: </b>{{ movie.title }}</h1>
 <p><b>Release Date:</b> {{ movie.date}}</p>
 <p><b>Director:</b> {{ director }}</p>
@@ -13,5 +17,6 @@
 <p><b>Genre:</b> {{ movie.genre }}</p>
 <p><b>Synopsis:</b> {{ movie.synopsis }}</p>
 <p><b>Gross:</b> {{ movie.gross }}</p>
-
+        </div>
+</div>
 {% endblock %}

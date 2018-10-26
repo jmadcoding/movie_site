@@ -1,42 +1,12 @@
 {% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
 
-{% block content %}
+{% block app_content %}
 
     <h1>Add Film to Database</h1>
-    <form action="" method="post" novalidate>
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.title.label }}<br>
-            {{ form.title(size=32) }}<br>
-            {% for error in form.title.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.releasedate.label }}<br>
-            {{ form.releasedate(class='datepicker') }}
-        </p>
-        <p>
-            {{ form.director.label }}<br>
-            {{ form.director() }}
-        </p>
-        <p>
-            {{ form.stars.label }}<br>
-            {{ form.stars() }}
-        </p>
-        <p>
-            {{ form.genre.label }}<br>
-            {{ form.genre(size=32) }}
-        </p>
-        <p>
-            {{ form.gross.label }}<br>
-            {{ form.gross(size=32) }}
-        </p>
-        <p>
-            {{ form.synopsis.label }}<br>
-            {{ form.synopsis(size=32) }}
-        </p>
-        <p>{{ form.submit() }}</p>
-    </form>
-
+    <div class="row">
+        <div class="col-md-4">
+            {{ wtf.quick_form(form) }}
+        </div>
+    </div>
 {% endblock %}

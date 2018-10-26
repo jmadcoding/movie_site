@@ -1,8 +1,14 @@
 {% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
 
 {% block content %}
+
+<div class="row">
+        <div class="col-md-4">
     <h1>Here are a bunch of movies I like!</h1>
     {% for x in movies %}
 <div><p><a href="{{ url_for('movie', title=x.title)}}">{{ x.title }}</a> : {{ x.synopsis }}</p></div>
     {% endfor %}
+        </div>
+</div>
 {% endblock %}

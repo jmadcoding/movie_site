@@ -1,37 +1,38 @@
-<html>
-    <head>
-        {% if title %}
-        <title>{{ title }} - Movie Site</title>
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+{% if title %}<title>{{ title }} - Movie Site</title>{% else %}<title>Welcome to Movie Site</title>{% endif %}
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-default">
+        Movie Site:
+        <a href="{{ url_for('index') }}">Home</a>
+        {% if current_user.is_anonymous %}
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('register') }}">Register</a>
         {% else %}
-        <title>Welcome to Movie Site</title>
+        <a href="{{ url_for('movie_list') }}">Movie List</a>
+        <a href="{{ url_for('new_movie') }}">Add New Movie</a>
+        <a href="{{ url_for('new_director') }}">Add New Director</a>
+        <a href="{{ url_for('new_star') }}">Add New Star</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
         {% endif %}
-    </head>
-    <body>
-        <div>
-            Movie Site:
-            <a href="{{ url_for('index') }}">Home</a>
-            {% if current_user.is_anonymous %}
-            <a href="{{ url_for('login') }}">Login</a>
-            <a href="{{ url_for('register') }}">Register</a>
-            {% else %}
-            <a href="{{ url_for('movie_list') }}">Movie List</a>
-            <a href="{{ url_for('new_movie') }}">Add New Movie</a>
-            <a href="{{ url_for('new_director') }}">Add New Director</a>
-            <a href="{{ url_for('new_star') }}">Add New Star</a>
-            <a href="{{ url_for('logout') }}">Logout</a>
-            {% endif %}
-        </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
         {% with messages = get_flashed_messages() %}
         {% if messages %}
-        <ul>
             {% for message in messages %}
-            <li>{{ message }}</li>
+            <div class="alert alert-info" role="alert">{{ message }}</div>
             {% endfor %}
-        </ul>
         {% endif %}
         {% endwith %}
-        <hr>
-        {% block content %}
-        {% endblock %}
-    </body>
-</html>
+
+        {# application content needs to be provided in the app_content block #}
+        {% block app_content %}{% endblock %}
+    </div>
+<hr>
+{% endblock %}
